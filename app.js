@@ -37,7 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let totalThree = squares[i+2].innerHTML
                 let totalFour = squares[i+3].innerHTML
                 let row = [parseInt(totalOne), parseInt(totalTwo),parseInt(totalThree), parseInt(totalFour)]
+
                 console.log(row)
+
+                let filteredRow = row.filter(num => num)
+                console.log(filteredRow)
             }
         }
     }
