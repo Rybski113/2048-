@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let totalFour = squares[i+3].innerHTML
                 let row = [parseInt(totalOne), parseInt(totalTwo),parseInt(totalThree), parseInt(totalFour)]
 
-                console.log(row)
+              
 
                 let filteredRow = row.filter(num => num)
                 console.log(filteredRow)
@@ -87,8 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-   
-    moveLeft()
+   function combineRow() {
+      for ( let i=0; i < 15; i++) {
+        if (squares[i].innerHTML === squares[i+1].innerHTML) {
+            let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
+            squares[i+1].innerHTML = combinedTotal
+            squares[i+1].innerHTML = 0
+        }
+      }
+   }
+    
 
 
 
