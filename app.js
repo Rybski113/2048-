@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
    }
+
+   //assign keycodes
     
 
 
