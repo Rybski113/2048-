@@ -42,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 let filteredRow = row.filter(num => num)
                 console.log(filteredRow)
+                let missing = 4 - filteredRow.length
+                let zeros = Array(missing).fill(0)
+                console.log(zeros)
+                let newRow = zeros.concat(filteredRow)
+                console.log(newRow)
+
+                squares[i].innerHTML = newRow[0]
+                squares[i+1].innerHTML = newRow[1]
+                squares[i+2].innerHTML = newRow[2]
+                squares[i+3].innerHTML = newRow[3]
             }
         }
     }
