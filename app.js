@@ -163,7 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
         keyRight()
     } else if (e.keyCode === 37) {
         keyLeft()
-    }
+    } else if (e.keyCode === 38) {
+        keyUp()
+    } else if(e.keyCode === 40) {
+        keyDown()
+    } 
    }
    document.addEventListener('keyup', control)
 
