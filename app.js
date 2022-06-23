@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDisplay = document.getElementById('result')
     const width = 4
     let squares = []
+    let score = 0
 
 
     //create a playing board
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         randomNumber = Math.floor(Math.random() * squares.length)
         if(squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
+            checkForGameOver()
         } else generate()
     }
 
@@ -141,8 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
             squares[i].innerHTML = combinedTotal
             squares[i+1].innerHTML = 0
+            score += combinedTotal
+            scoreDisplay.innerHTML = score
         }
       }
+      checkForWin()
    }
 
 
@@ -152,8 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
           let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
           squares[i].innerHTML = combinedTotal
           squares[i+width].innerHTML = 0
+          score += combinedTotal
+            scoreDisplay.innerHTML = score
       }
     }
+    checkForWin()
  }
 
    //assign keycodes
@@ -198,6 +206,32 @@ document.addEventListener('DOMContentLoaded', () => {
       combineColumn()
       moveUp()
       generate()
+   }
+
+   //check for the number 2048 to win
+
+   function checkForWin() {
+    for(let i=0; i < squares.length; i++) {
+        if(squares[i].innerHTML == 2048) {
+            resultDisplay.innerHTML = "You Win!"
+            document.removeEventListener('keyup', control)
+        }
+    }
+   }
+
+   //if no zeros on the board, you lose
+
+   function checkForGameOver() {
+    let zeros = 0
+    for(let i = 0; i < squares.length; i++) {
+        if (squares[i].innerHTML == 0) {
+            zeros ++
+        }
+    }
+    if ( zeros === 0) {
+        resultDisplay.innerHTML = "You Lose!"
+        document.removeEventListener('keyup', control)
+    }
    }
 
 
