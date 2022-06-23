@@ -182,6 +182,20 @@ document.addEventListener('DOMContentLoaded', () => {
       generate()
    }
 
+   function keyDown() {
+      moveDown()
+      combineColumn()
+      moveDown()
+      generate()
+   }
+
+   function keyUp() {
+      moveUp()
+      combineColumn()
+      moveUp()
+      generate()
+   }
+
 
 
 
